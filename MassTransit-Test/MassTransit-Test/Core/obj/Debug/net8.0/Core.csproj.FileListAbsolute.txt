@@ -1,0 +1,12 @@
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\bin\Debug\net8.0\Core.deps.json
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\bin\Debug\net8.0\Core.dll
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\bin\Debug\net8.0\Core.pdb
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\obj\Debug\net8.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\obj\Debug\net8.0\Core.AssemblyInfoInputs.cache
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\obj\Debug\net8.0\Core.AssemblyInfo.cs
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\obj\Debug\net8.0\Core.csproj.CoreCompileInputs.cache
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\obj\Debug\net8.0\Core.sourcelink.json
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\obj\Debug\net8.0\Core.dll
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\obj\Debug\net8.0\refint\Core.dll
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\obj\Debug\net8.0\Core.pdb
+F:\Git\RabbitMQ-Test\MassTransit-Test\MassTransit-Test\Core\obj\Debug\net8.0\ref\Core.dll
