@@ -15,15 +15,18 @@ namespace Produtor.Controllers
         {
             var factory = new ConnectionFactory() { HostName = "localhost", UserName = "guest", Password = "guest" };
             
-            using var connection = factory.CreateConnection();
+            // Criando uma conexão e um canal
+            using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
+                // Declarando uma fila no servidor RabbitMQ
                 channel.QueueDeclare(
-                    queue: "fila",
-                    durable: false,
-                    exclusive: false,
-                    autoDelete: false,
-                    arguments: null);
+                    queue: "minha-fila", // Nome da fila
+                    durable: true,       // Se a fila deve ser durável (sobreviver a reinicializações do servidor RabbitMQ)
+                    exclusive: false,    // Se a fila deve ser exclusiva (usada apenas por uma conexão)
+                    autoDelete: false,   // Se a fila deve ser automaticamente excluída quando não estiver em uso
+                    arguments: null
+                );
 
                 string message = JsonSerializer
                     .Serialize(new Pedido(1, new Usuario(1, "Carlos", "carlos@email.com"),
@@ -32,7 +35,7 @@ namespace Produtor.Controllers
 
                 channel.BasicPublish(
                     exchange: "",
-                    routingKey: "fila",
+                    routingKey: "minha-fila",
                     basicProperties: null,
                     body: body);
             }

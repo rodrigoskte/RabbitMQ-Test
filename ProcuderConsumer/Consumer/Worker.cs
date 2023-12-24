@@ -26,15 +26,18 @@ public class Worker : BackgroundService
         {
             var factory = new ConnectionFactory() { HostName = "localhost", UserName = "guest", Password = "guest" };
             
-            using var connection = factory.CreateConnection();
+            // Criando uma conexão e um canal
+            using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
+                // Declarando uma fila no servidor RabbitMQ
                 channel.QueueDeclare(
-                    queue: "fila",
-                    durable: false,
-                    exclusive: false,
-                    autoDelete: false,
-                    arguments: null);
+                    queue: "minha-fila", // Nome da fila
+                    durable: true,       // Se a fila deve ser durável (sobreviver a reinicializações do servidor RabbitMQ)
+                    exclusive: false,    // Se a fila deve ser exclusiva (usada apenas por uma conexão)
+                    autoDelete: false,   // Se a fila deve ser automaticamente excluída quando não estiver em uso
+                    arguments: null
+                );
 
                 // essa função fica observando a fila e quando chega uma mensagem, ela é executada
                 var consumer = new EventingBasicConsumer(channel);
@@ -48,7 +51,7 @@ public class Worker : BackgroundService
                     _logger.LogInformation($"Mensagem recebida: {message}");
                 };
                 // Depois de consumir a mensagem, ela é excluída da fila
-                channel.BasicConsume(queue: "fila", autoAck: true, consumer: consumer);
+                channel.BasicConsume(queue: "minha-fila", autoAck: true, consumer: consumer);
             }
         }
     }
